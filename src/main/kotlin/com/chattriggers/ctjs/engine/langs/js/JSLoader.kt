@@ -10,9 +10,9 @@ import com.chattriggers.ctjs.triggers.Trigger
 import com.chattriggers.ctjs.triggers.TriggerType
 import com.chattriggers.ctjs.utils.console.Console
 import com.chattriggers.ctjs.utils.console.LogType
-import dev.falsehonesty.asmhelper.dsl.*
-import dev.falsehonesty.asmhelper.dsl.instructions.InsnListBuilder
-import dev.falsehonesty.asmhelper.dsl.writers.AccessType
+//import dev.falsehonesty.asmhelper.dsl.*
+//import dev.falsehonesty.asmhelper.dsl.instructions.InsnListBuilder
+//import dev.falsehonesty.asmhelper.dsl.writers.AccessType
 import org.mozilla.javascript.*
 import org.mozilla.javascript.Function
 import org.mozilla.javascript.commonjs.module.ModuleScriptProvider
@@ -222,67 +222,67 @@ object JSLoader : ILoader {
         }
     }
 
-    @JvmStatic
-    fun asmInjectHelper(
-        _className: String,
-        _at: At,
-        _methodName: String,
-        _methodDesc: String,
-        _fieldMaps: Map<String, String>,
-        _methodMaps: Map<String, String>,
-        _insnList: (Wrapper) -> Unit,
-    ) {
-        inject {
-            className = _className
-            methodName = _methodName
-            methodDesc = _methodDesc
-            at = _at
-            fieldMaps = _fieldMaps
-            methodMaps = _methodMaps
+    //@JvmStatic
+    //fun asmInjectHelper(
+    //    _className: String,
+    //    _at: At,
+    //    _methodName: String,
+    //    _methodDesc: String,
+    //    _fieldMaps: Map<String, String>,
+    //    _methodMaps: Map<String, String>,
+    //    _insnList: (Wrapper) -> Unit,
+    //) {
+    //    inject {
+    //        className = _className
+    //        methodName = _methodName
+    //        methodDesc = _methodDesc
+    //        at = _at
+    //        fieldMaps = _fieldMaps
+    //        methodMaps = _methodMaps
+//
+    //        insnList {
+    //            wrapInContext {
+    //                _insnList(NativeJavaObject(scope, this, InsnListBuilder::class.java))
+    //            }
+    //        }
+    //    }
+    //}
 
-            insnList {
-                wrapInContext {
-                    _insnList(NativeJavaObject(scope, this, InsnListBuilder::class.java))
-                }
-            }
-        }
-    }
+    //@JvmStatic
+    //fun asmRemoveHelper(
+    //    _className: String,
+    //    _at: At,
+    //    _methodName: String,
+    //    _methodDesc: String,
+    //    _methodMaps: Map<String, String>,
+    //    _numberToRemove: Int,
+    //) {
+    //    remove {
+    //        className = _className
+    //        methodName = _methodName
+    //        methodDesc = _methodDesc
+    //        at = _at
+    //        methodMaps = _methodMaps
+    //        numberToRemove = _numberToRemove
+    //    }
+    //}
 
-    @JvmStatic
-    fun asmRemoveHelper(
-        _className: String,
-        _at: At,
-        _methodName: String,
-        _methodDesc: String,
-        _methodMaps: Map<String, String>,
-        _numberToRemove: Int,
-    ) {
-        remove {
-            className = _className
-            methodName = _methodName
-            methodDesc = _methodDesc
-            at = _at
-            methodMaps = _methodMaps
-            numberToRemove = _numberToRemove
-        }
-    }
-
-    @JvmStatic
-    fun asmFieldHelper(
-        _className: String,
-        _fieldName: String,
-        _fieldDesc: String,
-        _initialValue: Any?,
-        _accessTypes: List<AccessType>,
-    ) {
-        applyField {
-            className = _className
-            fieldName = _fieldName
-            fieldDesc = _fieldDesc
-            initialValue = _initialValue
-            accessTypes = _accessTypes
-        }
-    }
+    //@JvmStatic
+    //fun asmFieldHelper(
+    //    _className: String,
+    //    _fieldName: String,
+    //    _fieldDesc: String,
+    //    _initialValue: Any?,
+    //    _accessTypes: List<AccessType>,
+    //) {
+    //    applyField {
+    //        className = _className
+    //        fieldName = _fieldName
+    //        fieldDesc = _fieldDesc
+    //        initialValue = _initialValue
+    //        accessTypes = _accessTypes
+    //    }
+    //}
 
     override fun eval(code: String): String {
         return wrapInContext(evalContext) {

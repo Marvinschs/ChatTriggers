@@ -1,0 +1,31 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.chattriggers.ctjs.mixins",
+  "plugin": "com.chattriggers.ctjs.launch.plugin.CtjsMixinPlugin",
+  "verbose": true,
+  "required": true,
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.7.11-SNAPSHOT",
+  "client": [
+    "MixinCrashReport",
+    "MixinEffectRenderer",
+    "MixinEntityPlayerSP",
+    "MixinGuiContainer",
+    "MixinGuiIngame",
+    "MixinGuiIngameForge",
+    "MixinGuiMainMenu",
+    "MixinGuiScreen",
+    "MixinMinecraft",
+    "MixinPlayerControllerMP",
+    "MixinRenderItem",
+    "MixinRenderManager",
+    "MixinScreenshotHelper",
+    "MixinTileEntityRenderDispatcher",
+    "devenv.MixinMain",
+    "devenv.MixinSoundManager",
+    "devenv.MixinSplashProgress"
+  ],
+  "refmap": "ctjs.mixins.refmap.json"
+}
